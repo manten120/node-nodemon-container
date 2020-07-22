@@ -1,0 +1,19 @@
+# 開発環境用
+
+version: '3.3'
+
+volumes:
+  node_modules:
+
+services:
+  app:
+    build: .
+    container_name: node
+    ports:
+      - '8080:8080'
+    restart: always
+    volumes:
+      - '.:/app'
+      - 'node_modules:/app/node_modules'
+    tty: true
+    stdin_open: true
